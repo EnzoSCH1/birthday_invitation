@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALIZÉE — 22 ANS | Dimanche 21 Février</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+  <!-- CURSEUR NÉON -->
+  <div id="custom-cursor"></div>
+
+  <!-- PRELOADER 100% RIDEAU -->
+  <div id="preloader">
+    <div class="curtain-half curtain-top"></div>
+    <div id="laser-bar" class="laser-line"></div>
+    <div class="curtain-half curtain-bottom"></div>
+    <!-- pourcentage + texte : posés par-dessus les deux rideaux, centrés en entier -->
+    <div class="loader-center">
+      <div class="loader-count">
+        <span id="loader-num" class="font-display grad-text-pink-cyan">0</span><span class="font-display loader-pct">%</span>
+      </div>
+      <p class="loader-text">On prépare la boule disco...</p>
+    </div>
+  </div>
+
+  <main id="page" class="page">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="hero-stars" aria-hidden="true"></div>
+
+      <!-- Photo sticker en haut à droite : à chaque rechargement, une des photos de
+           assets/img/ est tirée au hasard (liste dans main.js) et tombe dans le hero. -->
+      <button type="button" id="hero-photo" class="hero-photo" onclick="burstConfettiFromEl(this)" aria-label="Photo">
+        <img id="hero-photo-img" src="assets/img/alizee1.png" alt="" />
+      </button>
+
+      <div class="hero-stage">
+        <div class="hero-wire" aria-hidden="true"></div>
+        <div class="hero-ball"><canvas id="discoCanvas" width="320" height="320"></canvas></div>
+        <div class="hero-age">
+          <span class="hero-age-number font-display">22</span>
+          <span class="hero-age-label font-display">ANS</span>
+        </div>
+        <h1 class="hero-title font-display" id="hero-title" aria-label="ALIZÉE">ALIZÉE</h1>
+      </div>
+
+      <div class="hero-details">
+        <p>On fête mes 22 ans.</p>
+        <p class="lime">Dimanche 21.02 — 21h — Paris 17e</p>
+      </div>
+    </section>
+
+    <!-- ================= RUBANS ================= -->
+    <div class="ribbons-stage" aria-hidden="true">
+      <div class="ribbon ribbon-yellow">
+        <div class="marquee">
+          <span>21 ✦ ALIZÉE ✦ PARIS 17 ✦ 21.02 ✦ MES 22 ANS ✦ 21H ✦ ALIZÉE ✦ PARIS 17 ✦ 21.02 ✦ MES 22 ANS ✦ 21H ✦&nbsp;</span>
+          <span>21 ✦ ALIZÉE ✦ PARIS 17 ✦ 21.02 ✦ MES 22 ANS ✦ 21H ✦ ALIZÉE ✦ PARIS 17 ✦ 21.02 ✦ MES 22 ANS ✦ 21H ✦&nbsp;</span>
+        </div>
+      </div>
+      <div class="ribbon ribbon-pink">
+        <div class="marquee marquee-reverse">
+          <span>MES 22 ANS ✦ 21H ✦ PARIS 17 ✦ 21.02 ✦ MES 22 ANS ✦ ALIZÉE ✦ 21H ✦ PARIS 17 ✦ 21.02 ✦ ALIZÉE ✦&nbsp;</span>
+          <span>MES 22 ANS ✦ 21H ✦ PARIS 17 ✦ 21.02 ✦ MES 22 ANS ✦ ALIZÉE ✦ 21H ✦ PARIS 17 ✦ 21.02 ✦ ALIZÉE ✦&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ENCORE UN PEU DE PATIENCE ================= -->
+    <section class="section section-infos countdown-section">
+      <h2 class="genz-title title font-display">
+        <span class="genz-title-wrap"><span class="genz-line">ENCORE</span></span>
+        <span class="genz-title-wrap"><span class="genz-line delay-1 stroke-text">UN PEU</span></span>
+        <span class="genz-title-wrap"><span class="genz-line delay-2">DE PATIENCE</span></span>
+      </h2>
+
+      <div class="countdown">
+        <div class="cd-group"><div class="cd-digits" id="cd-days"></div><span class="cd-label">JOURS</span></div>
+        <div class="cd-group"><div class="cd-digits" id="cd-hours"></div><span class="cd-label">HEURES</span></div>
+        <div class="cd-group"><div class="cd-digits" id="cd-mins"></div><span class="cd-label">MIN</span></div>
+        <div class="cd-group"><div class="cd-digits" id="cd-secs"></div><span class="cd-label">SEC</span></div>
+      </div>
+    </section>
+
+    <!-- ================= LES INFOS PRATIQUES ================= -->
+    <section class="section">
+      <h2 class="genz-title title font-display">
+        <span class="genz-title-wrap"><span class="genz-line">LES INFOS <span class="grad-pratiques">PRATIQUES</span></span></span>
+      </h2>
+
+      <div class="infos-grid">
+        <div class="card reveal-blur">
+          <span class="label">QUAND</span>
+          <h3 class="card-title">Dimanche 21 février</h3>
+          <p class="card-sub pink">RDV 21h</p>
+          <div class="chips">
+            <button type="button" onclick="openGoogleCalendar()" class="chip">Google Agenda</button>
+            <button type="button" onclick="downloadICS()" class="chip">Fichier .ics</button>
+          </div>
+        </div>
+
+        <div class="card reveal-blur" style="--d:.12s">
+          <span class="label">OÙ</span>
+          <h3 class="card-title">104 rue Nollet</h3>
+          <p class="card-sub lime">Paris 17e</p>
+          <div class="chips">
+            <a href="https://maps.google.com/?q=104+rue+Nollet,+75017+Paris" target="_blank" rel="noopener noreferrer" class="chip">Ouvrir dans Google Maps</a>
+          </div>
+        </div>
+
+        <div id="dresscode-card" class="card reveal-blur" style="--d:.24s">
+          <canvas id="sparkleCanvas" class="sparkle-canvas"></canvas>
+          <span class="label">DRESS CODE</span>
+          <div class="card-title card-title-lg dresscode">
+            <span>Sur</span>
+            <span id="dc-31" class="dc-old">son 31<span id="dc-strike" class="dc-strike"></span></span>
+            <span id="dc-new" class="dc-new">21</span>
+          </div>
+          <p class="card-text">Paillettes, costard, talons... Sors le grand jeu, mais 10 jours plus tôt 😉</p>
+        </div>
+
+        <div class="card card-hosts reveal-blur" style="--d:.36s">
+          <div class="hosts-avatars">
+            <img src="assets/img/alizee.webp" alt="moi" />
+            <img src="https://symbl-cdn.com/i/webp/c2/69d88bc3c5bddbae2326b14aafea5d.webp" alt="toi" />
+          </div>
+          <div>
+            <span class="label">LES HÔTES D'HONNEUR</span>
+            <h3 class="card-title card-title-sm">Toi <span class="pink">&amp;</span> Moi </h3>
+            <p class="card-text">j'espère que tu seras de la soirée 💖<br/>Tout le monde le sait.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LE PROGRAMME (comme la vidéo : la section reste à l'écran
+         pendant que les cartes défilent vers la gauche au scroll) ================= -->
+    <section id="program-section" class="program-pin">
+      <div class="program-sticky">
+        <h2 class="genz-title title font-display">
+          <span class="genz-title-wrap"><span class="genz-line">LE PROGRAMME</span></span>
+        </h2>
+
+        <div id="program-track" class="program-track">
+          <div class="prog-card prog-card-stars">
+            <span class="prog-num font-display">01</span>
+            <div class="prog-body">
+              <div class="prog-emoji">🔔</div>
+              <h3 class="prog-title">21h — RDV</h3>
+              <p class="prog-text">On arrive, on s'embrasse, on trinque.</p>
+            </div>
+          </div>
+          <div class="prog-card">
+            <span class="prog-num font-display">02</span>
+            <div class="prog-body">
+              <div class="prog-emoji">🍴🍾</div>
+              <h3 class="prog-title">Détente au resto</h3>
+              <p class="prog-text">amis, blabla, gâteau et bouffe dans le restaurant.</p>
+            </div>
+          </div>
+          <div class="prog-card prog-card-lasers">
+            <!-- 2 projecteurs (rose à droite, citron à gauche), 3 faisceaux chacun -->
+            <div class="lasers" aria-hidden="true">
+              <span class="beam beam-pink" style="--from:-58deg; --to:-18deg; --dur:3.4s; --delay:0s"></span>
+              <span class="beam beam-pink" style="--from:-38deg; --to:4deg; --dur:2.9s; --delay:-1.2s"></span>
+              <span class="beam beam-pink" style="--from:-18deg; --to:26deg; --dur:3.8s; --delay:-.6s"></span>
+              <span class="beam beam-lime" style="--from:20deg; --to:-22deg; --dur:3.1s; --delay:-.4s"></span>
+              <span class="beam beam-lime" style="--from:40deg; --to:2deg; --dur:3.6s; --delay:-1.8s"></span>
+              <span class="beam beam-lime" style="--from:60deg; --to:18deg; --dur:2.7s; --delay:-1s"></span>
+              <span class="laser-source source-pink"></span>
+              <span class="laser-source source-lime"></span>
+            </div>
+            <span class="prog-num font-display">03</span>
+            <div class="prog-body">
+              <div class="prog-emoji">🌙💃</div>
+              <h3 class="prog-title">Et après... en boîte&nbsp;!</h3>
+              <p class="prog-text">Pour les plus motivés, on finit la nuit en club. Les autres, aucun jugement (presque).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ALORS, TU VIENS ? ================= -->
+    <section id="rsvp-section" class="section rsvp-section">
+      <h2 class="genz-title title font-display">
+        <span class="genz-title-wrap"><span class="genz-line">ALORS,</span></span>
+        <span class="genz-title-wrap"><span class="genz-line delay-1">TU VIENS&nbsp;?</span></span>
+      </h2>
+
+      <form id="rsvp-form" onsubmit="submitRSVP(event)" class="card rsvp-form reveal-tilt">
+        <div>
+          <label for="rsvp-name" class="label">TON PRÉNOM</label>
+          <input id="rsvp-name" type="text" required placeholder="Beyoncé" class="field" />
+        </div>
+
+        <div>
+          <span class="label">TA RÉPONSE</span>
+          <div class="rsvp-pills">
+            <button type="button" onclick="selectStatus('yes', this)" class="rsvp-pill is-active">Je viens 🤘</button>
+            <button type="button" onclick="selectStatus('maybe', this)" class="rsvp-pill">Peut-être 🤔</button>
+            <button type="button" onclick="selectStatus('no', this)" class="rsvp-pill">Je viens pas 🥲</button>
+          </div>
+        </div>
+
+        <div>
+          <label for="rsvp-song" class="label">TA CHANSON POUR LE DANCEFLOOR</label>
+          <input id="rsvp-song" type="text" placeholder="Dancing Queen — ABBA" class="field" />
+        </div>
+
+        <label class="check">
+          <input type="checkbox" />
+          <span>Je suis chaud·e pour la boîte aussi ! 🔥</span>
+        </label>
+
+        <div><button type="submit" class="btn-white">Envoyer ma réponse →</button></div>
+      </form>
+    </section>
+
+    <!-- ================= LE SONDAGE DE LA SOIRÉE (une carte, Avant / Après, comme dans la vidéo) ================= -->
+    <section class="section">
+      <h2 class="genz-title title font-display">
+        <span class="genz-title-wrap"><span class="genz-line">LE SONDAGE</span></span>
+        <span class="genz-title-wrap"><span class="genz-line delay-1"><span class="grad-pink">DE LA SOIRÉE</span> 🗳️</span></span>
+      </h2>
+
+      <div class="poll-wrap reveal-blur">
+        <div class="poll-progress" aria-hidden="true">
+          <span class="is-on"></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div id="poll-card" class="poll-card">
+          <div class="poll-step is-active" data-step="0">
+            <div class="poll-emoji">💃</div>
+            <h3 class="poll-q">On finit où après le resto ?</h3>
+            <div class="poll-options" id="club-options-container">
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:12%"><span>Je dors à 1h, désolé·e</span><span class="pct">12%</span></button>
+              <div class="poll-propose">
+                <input id="custom-club-input" type="text" placeholder="Propose ta boîte" onkeydown="if(event.key==='Enter'){event.preventDefault();proposeClub();}" />
+                <button type="button" onclick="proposeClub()" aria-label="Proposer">＋</button>
+              </div>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:43%"><span>Je sais pas frérot je connais pas Paris</span><span class="pct">43%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:45%"><span>O'Sullivans</span><span class="pct">45%</span></button>
+            </div>
+          </div>
+          <div class="poll-step" data-step="1">
+            <div class="poll-emoji">🍸</div>
+            <h3 class="poll-q">La boisson officielle de la soirée ?</h3>
+            <div class="poll-options">
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:38%"><span>Champagne &amp; bulles 🍾</span><span class="pct">38%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:32%"><span>Cocktails 🍹</span><span class="pct">32%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:18%"><span>Bière / Vin 🍷</span><span class="pct">18%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:12%"><span>Soft &amp; mocktails 🧃</span><span class="pct">12%</span></button>
+            </div>
+          </div>
+          <div class="poll-step" data-step="2">
+            <div class="poll-emoji">🎶</div>
+            <h3 class="poll-q">Le son pour ouvrir le dancefloor ?</h3>
+            <div class="poll-options">
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:44%"><span>Années 2000</span><span class="pct">44%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:24%"><span>Rap FR</span><span class="pct">24%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:19%"><span>Disco</span><span class="pct">19%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:13%"><span>Reggaeton</span><span class="pct">13%</span></button>
+            </div>
+          </div>
+          <div class="poll-step" data-step="3">
+            <div class="poll-emoji">🤔</div>
+            <h3 class="poll-q">À quelle heure tu craques ?</h3>
+            <div class="poll-options">
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:6%"><span>Minuit</span><span class="pct">6%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:21%"><span>2h</span><span class="pct">21%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:34%"><span>4h</span><span class="pct">34%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:39%"><span>Je vois le lever du soleil</span><span class="pct">39%</span></button>
+            </div>
+          </div>
+          <div class="poll-step" data-step="4">
+            <div class="poll-emoji">📸</div>
+            <h3 class="poll-q">Ton mood pour les photos ?</h3>
+            <div class="poll-options">
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:48%"><span>Paparazzi toute la nuit 📸</span><span class="pct">48%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:27%"><span>Star des Reels 💃</span><span class="pct">27%</span></button>
+              <button type="button" onclick="voteOption(this)" class="poll-option" style="--pct:25%"><span>Dossier interdit avant minuit 🤫</span><span class="pct">25%</span></button>
+            </div>
+          </div>
+          <p class="poll-note">Un seul vote par question, choisis bien 😉</p>
+        </div>
+
+        <div class="poll-nav">
+          <button id="poll-prev" type="button" onclick="changeStep(-1)" class="poll-nav-btn">← Avant</button>
+          <span id="poll-counter" class="poll-counter" aria-live="polite">1/5</span>
+          <button id="poll-next" type="button" onclick="changeStep(1)" class="poll-nav-btn">Après →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ILS SERONT LÀ ================= -->
+    <section class="section">
+      <div class="guests-head">
+        <h2 class="genz-title title font-display">
+          <span class="genz-title-wrap"><span class="genz-line">ILS SERONT</span></span>
+          <span class="genz-title-wrap"><span class="genz-line delay-1 stroke-text">LÀ</span></span>
+        </h2>
+        <div class="guests-count">
+          <span id="guest-count" class="font-display">0</span>
+          <p id="guest-count-label">PERSONNE CONFIRMÉE</p>
+        </div>
+      </div>
+
+      <div id="guest-wall" class="guest-wall">
+        <button type="button" class="pill pill-cat pill-cat-pink">
+          <img src="assets/img/ali.webp" alt="" />ALIZEE
+        </button>
+        <button type="button" class="pill pill-cat pill-cat-lime">
+          <img src="assets/img/enzo.jpg" alt="" />ENZO
+        </button>
+      </div>
+      <p id="guests-empty" class="guests-empty">Personne n'a encore confirmé… sois le ou la première&nbsp;! 👆</p>
+      <p class="guests-note">Confirme = une pastille. Tape dessus pour fêter ça 🎉</p>
+    </section>
+
+    <!-- ================= LA PLAYLIST ================= -->
+    <section class="section">
+      <h2 class="genz-title title font-display">
+        <span class="genz-title-wrap"><span class="genz-line">LA <span class="grad-pink">PLAYLIST</span></span></span>
+      </h2>
+
+      <div class="playlist">
+        <div class="vinyl-wrap">
+          <button type="button" onclick="toggleVinyl()" class="vinyl-disc" aria-label="Mettre en pause / relancer le vinyle">
+            <span class="vinyl-label font-display"><span>ALIZÉE</span><span>21/02</span></span>
+          </button>
+        </div>
+
+        <div class="tracks-col">
+          <ul id="playlist-tracks" class="tracks"></ul>
+          <p id="tracks-empty" class="tracks-empty">La playlist est vide pour l'instant… ajoute le premier son&nbsp;! 🎶</p>
+
+          <button type="button" onclick="toggleSongInput()" class="btn-outline-lime">J'ai d'autres musiques à ajouter 💬</button>
+          <div id="add-song-box" class="add-song" hidden>
+            <input id="quick-song" type="text" placeholder="Titre — Artiste" onkeydown="if(event.key==='Enter'){addQuickSong();}" />
+            <button type="button" onclick="addQuickSong()">Ajouter</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="section footer">
+      <div class="footer-actions">
+        <button type="button" onclick="shareWhatsApp()" class="btn-lime">Partager sur WhatsApp</button>
+        <button type="button" onclick="openGoogleCalendar()" class="btn-ghost">Ajouter à mon agenda</button>
+        <button type="button" onclick="downloadICS()" class="btn-ghost">ics (Apple / Outlook)</button>
+      </div>
+
+      <h2 class="genz-title font-display vendredi">
+        <span class="genz-title-wrap"><span class="genz-line"><span class="grad-vendredi">À DIMANCHE</span></span></span>
+      </h2>
+
+      <div class="signature">
+        <p class="signature-name">Alizée 💗</p>
+        <p class="signature-sub">avec mes Amis &amp; Toi 💙🫵</p>
+      </div>
+
+      <div class="footer-bar">
+        <p>© 2026 ALIZÉE</p>
+        <div class="socials">
+          <button type="button" onclick="shareWhatsApp()" class="social" aria-label="Partager sur WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          </button>
+          <!-- Remplace le # par le lien de ton Insta -->
+          <a href="#" target="_blank" rel="noopener noreferrer" class="social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# vidéos de référence (trop lourdes, ne pas publier)
+*.mov
+*.mp4
+
+# fichiers système / éditeur
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
